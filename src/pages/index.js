@@ -1,9 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+
+const RedTitle = styled.div`
+  color: red;
+  font-size: 20px;
+`;
 
 const IndexPage = () => (
   <Layout>
@@ -16,6 +22,10 @@ const IndexPage = () => (
     <Link to="/page-2/">Go to page 2</Link>
     <br />
     <Link to="/page-3/">Go to page 3</Link>
+    <hr />
+    <RedTitle>
+      <p>Red Title Component</p>
+    </RedTitle>
   </Layout>
 )
 
