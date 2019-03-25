@@ -14,6 +14,7 @@
     "gatsby-plugin-sharp": "^2.0.30",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-source-hacker-news": "^2.0.10",
     "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
