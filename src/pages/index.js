@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 const RedTitle = styled.div`
   color: red;
   font-size: 20px;
-`;
+`
 
 const IndexPage = () => (
   <Layout>
