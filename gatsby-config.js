@@ -39,3 +39,47 @@ module.exports = {
     // 'gatsby-plugin-offline',
   ],
 }
+
+const path = require('path')
+
+// 参照: https://www.gatsbyjs.org/docs/node-apis/
+exports.createPages = ({
+  graphql,
+  actions
+}) => {
+  const {
+    createPage
+  } = actions
+  return new Promise((resolve, reject) => {
+    // hacker-newsのデータスキーマ
+    graphql(`
+      allHnStory {
+        edges {
+        node {
+        id
+        title
+        score
+        order
+        domain
+        url
+        }
+      }
+    }
+    `).then(result => {
+      // 取得したら `/stories/edges[n].node.id` のパスにページを動的生成する
+      result.data.allHnStory.edges.forEach(edge => {
+        const node = edge.node
+        const path = `/stories/${node.id}`
+        console.log(path)
+        createPage({
+          path: path,
+          commonent: path.resolve(`./src/template/story.js`), // ページ動的生成の際に使用されるテンプレート
+          context: {
+            id: node.id
+          }
+        })
+      })
+      resolve()
+    })
+  })
+}
